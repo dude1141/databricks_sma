@@ -2,21 +2,21 @@
 databricks_practice
 points to remember
 
-1)cluster pools resources for you cluster
-pools of resources for you using lcuster pools
+1)  cluster pools resources for you cluster
+    pools of resources for you using lcuster pools
 
 
-2)job clusters are not created manually,
+2)  job clusters are not created manually,
 
-3)ADLS azure data lake storage
+3)  ADLS azure data lake storage
 
-  session scope authentication
-  cluster scope authentication
-  Azure active directory---looks at roles user has been assigned to ADLS using IAM
-  Unity catalog--admin can assign permission to users---premium
+      session scope authentication
+      cluster scope authentication
+      Azure active directory---looks at roles user has been assigned to ADLS using IAM
+      Unity catalog--admin can assign permission to users---premium
 
 
-4) comes with two 2 keys
+4)  comes with two 2 keys
 
     access keys--- spark.conf.set("fs.azure,account.key...windows.net","adsfsdafs")
     reference data from ADLs---from databricks we need driver called abfs(Azure blob file system)
@@ -26,6 +26,7 @@ pools of resources for you using lcuster pools
     abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>
 
 5)  SAS --shared access signature Token
+   
       1) fined grained access storage
 
       2) restrict access to specific resource
@@ -38,23 +39,23 @@ pools of resources for you using lcuster pools
 
 
 
-6)accessing using SAS token
+6)  accessing using SAS token
 
-    spark.conf.set("fs.azure.account.auth.type.<storage-account>.dfs.core.windows.net", "SAS")
+      spark.conf.set("fs.azure.account.auth.type.<storage-account>.dfs.core.windows.net", "SAS")
 
-    spark.conf.set("fs.azure.sas.token.provider.type.<storage-account>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider")
+      spark.conf.set("fs.azure.sas.token.provider.type.<storage-account>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider")
 
-    spark.conf.set("fs.azure.sas.fixed.token.<storage-account>.dfs.core.windows.net", dbutils.secrets.get(scope="<scope>", key="<sas-token-key>"))
+      spark.conf.set("fs.azure.sas.fixed.token.<storage-account>.dfs.core.windows.net", dbutils.secrets.get(scope="<scope>", key="<sas-token-key>"))
 
 
 
 service_prinicipal --better security and traceability
       Azure AD application---
 
-7)access control(IAM)
+7) access control(IAM)
       we have given storage blob data contributor access on our storage account formualdl1 to the service principal
 
-8)cluster scoped ---we set the secret and spark conf set on the cluster side instead of databricks notebook.
+8) cluster scoped ---we set the secret and spark conf set on the cluster side instead of databricks notebook.
 
 
 
@@ -64,7 +65,7 @@ in certain scenarios , we have to controls users or specific users
 
 
 
-9)dbsecrets.utilty
+9) dbsecrets.utilty
 
     it really avoids exposed secrets to public, without comprising your secrets
     creation of clientid,tentatid and clientsecret and use later for mounting etc...and set them in spark conf.set
