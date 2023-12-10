@@ -25,16 +25,16 @@ pools of resources for you using lcuster pools
 
     abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>
 
-5)SAS --shared access signature Token
-    1) fined grained access storage
+5)  SAS --shared access signature Token
+      1) fined grained access storage
 
-    2) restrict access to specific resource
+      2) restrict access to specific resource
 
-    3) allow specific permisions
+      3) allow specific permisions
 
-    4) restruc access to time period
+      4) restruc access to time period
 
-    5)  limit accesss to IP address
+      5)  limit accesss to IP address
 
 
 
@@ -49,10 +49,10 @@ pools of resources for you using lcuster pools
 
 
 service_prinicipal --better security and traceability
-    Azure AD application---
+      Azure AD application---
 
 7)access control(IAM)
-    we have given storage blob data contributor access on our storage account formualdl1 to the service principal
+      we have given storage blob data contributor access on our storage account formualdl1 to the service principal
 
 8)cluster scoped ---we set the secret and spark conf set on the cluster side instead of databricks notebook.
 
@@ -78,5 +78,5 @@ in certain scenarios , we have to controls users or specific users
     can be accessed from databricks ,an abstraction layer on top of azure blob storage
 
 11)
-  DBFS root is where display results are stored or query results , managed tables default creation is dbfs root
+    DBFS root is where display results are stored or query results , managed tables default creation is dbfs root
 
